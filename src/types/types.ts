@@ -7,12 +7,12 @@ export type Main = {
 }
 
 export enum ESPECIALT {
-    REACT = "REACT",
-    REDUX = "REDUX",
-    CSS = "CSS",
-    TESTES = "TESTES",
-    TYPESCRIPT = "TYPESCRIPT",
-    DOM = "DOM",
-    BACKEND = "BACKEND"
+    REACT,
+    REDUX,
+    CSS,
+    TESTES,
+    TYPESCRIPT,
+    DOM,
+    BACKEND
 }
 

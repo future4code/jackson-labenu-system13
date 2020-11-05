@@ -7,7 +7,7 @@
       "start": "tsc && node ./build/index.js",
       "dev": "ts-node-dev ./src/index.ts",
       "build": "tsc",
-      "create-table": "tsc && node ./src/sql/createTableStudent.ts",
+      "create-table": "ts-node-dev ./src/sql/createTable.ts",
       "debug": "tsc && node ./build/index.js"
    },
    "author": "",
