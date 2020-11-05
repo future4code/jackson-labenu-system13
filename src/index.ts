@@ -3,6 +3,7 @@ import knex from "knex";
 import dotenv from "dotenv";
 import cors from "cors";
 import { AddressInfo } from "net";
+import { postStudent } from "./endpoints/postStudent";
 
 // ================ CONFIGURAÇÃO DO SERVIDOR =====================
 dotenv.config();
@@ -25,7 +26,7 @@ app.use(cors())
 
 // ==================== ENDPOINTS =============================
 
-
+app.post("/labenu/student", postStudent);
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
