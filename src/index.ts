@@ -9,6 +9,7 @@ import { createMission } from "./endpoints/createMission"
 import { getAgeStudentById } from "./endpoints/getAgeStudentById";
 import { addTeacherToMission } from "./endpoints/addTeacherToMission";
 import { addStudentToMission } from "./endpoints/addStudentToMission";
+import { bringAllStudent } from "./endpoints/bringAllStudent"
 
 
 
@@ -40,6 +41,7 @@ app.get("/labenu/age/:id", getAgeStudentById)
 app.put("/labenu/add-teacher-to-mission", addTeacherToMission)
 app.put("/labenu/add-student-to-mission", addStudentToMission)
 app.post("/labenu/mission", createMission)
+app.get("/labenu/allStudent", bringAllStudent)
 
 
 
