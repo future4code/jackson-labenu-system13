@@ -1,34 +1,20 @@
 import { Request, Response } from 'express';
-import { createHobby } from '../sql/createHobby';
-import { convertDate, createStudent } from '../sql/createStudent';
+import { createHobby } from '../data/createHobby';
+import { createStudent } from '../data/createStudent';
+import { convertDate, validation } from '../utils/globals';
 
 export const postStudent = async (req: Request, res: Response): Promise<void> =>{
     try{
-        const {name, email, birthDate, hobbies} = req.body
+        const {name, email, birthDate, hobbies, mission_id} = req.body
 
-        if(!name){
-            res.statusCode = 404
-            throw new Error("Por favor insira um nome")
-        };
-        if(!email){
-            res.statusCode = 404
-            throw new Error("Por favor insira um email")
-        };
-        if(!birthDate){
-            res.statusCode = 404
-            throw new Error("Por favor insira data de aniversário")
-        };
-        if(!hobbies){
-            res.statusCode = 404
-            throw new Error("Por favor insira seus hobbies")
-        };
+        await validation({name, email, birthDate, hobbies, mission_id})
 
         const date = convertDate(birthDate);
 
-        await createStudent(name, email, date);
+        await createStudent(name, email, date, mission_id);
+        
 
-
-        // await createHobby(hobbies);
+        await createHobby(hobbies);
 
         res.status(200)
         .send("Estudante adicionado com sucesso")

@@ -1,12 +1,7 @@
 import { connection } from "../index";
 import {Mission} from '../types/types';
+import { convertDate } from "../utils/globals";
 
-const formattedDate = (date: string): string =>{
-    const [dd, mm, yyyy] = date.split("/")
-    const newDate: string = (`${yyyy}-${mm}-${dd}`) 
-    
-    return newDate
-}
 
 export const insertMission = async (query: Mission): Promise<any> =>{
     try{
@@ -14,8 +9,8 @@ export const insertMission = async (query: Mission): Promise<any> =>{
         INSERT INTO mission (name, start_date, end_date, module)
         VALUES(
             "${query.name}",
-            "${formattedDate(String(query.start_date))}",
-            "${formattedDate(String(query.end_date))}",
+            "${convertDate(String(query.start_date))}",
+            "${convertDate(String(query.end_date))}",
             "${query.module}"
         );
     `)
