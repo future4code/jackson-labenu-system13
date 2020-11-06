@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const knex_1 = __importDefault(require("knex"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
+const createTeacher_1 = require("./endpoints/createTeacher");
 // ================ CONFIGURAÇÃO DO SERVIDOR =====================
 dotenv_1.default.config();
 exports.connection = knex_1.default({
@@ -24,6 +25,7 @@ const app = express_1.default();
 app.use(express_1.default.json());
 app.use(cors_1.default());
 // ==================== ENDPOINTS =============================
+app.post("/labenu/teacher", createTeacher_1.createTeacher);
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address();

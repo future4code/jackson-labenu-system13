@@ -3,6 +3,7 @@ import knex from "knex";
 import dotenv from "dotenv";
 import cors from "cors";
 import { AddressInfo } from "net";
+import { createTeacher } from "./endpoints/createTeacher";
 
 // ================ CONFIGURAÇÃO DO SERVIDOR =====================
 dotenv.config();
@@ -24,6 +25,8 @@ app.use(cors())
 
 
 // ==================== ENDPOINTS =============================
+
+app.post("/labenu/teacher", createTeacher)
 
 
 

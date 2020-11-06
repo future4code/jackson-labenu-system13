@@ -6,6 +6,13 @@ export type Main = {
     mission_id: number
 }
 
+export type Teacher = {
+    name: string,
+    email: string,
+    birth_date: Date,
+    mission_id: number
+}
+
 export enum ESPECIALT {
     REACT,
     REDUX,
