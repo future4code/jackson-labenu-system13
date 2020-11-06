@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { AddressInfo } from "net";
 import { createTeacher } from "./endpoints/createTeacher";
+import { createMission } from "./endpoints/createMission"
+
 
 // ================ CONFIGURAÇÃO DO SERVIDOR =====================
 dotenv.config();
@@ -27,7 +29,7 @@ app.use(cors())
 // ==================== ENDPOINTS =============================
 
 app.post("/labenu/teacher", createTeacher)
-
+app.post("/labenu/mission", createMission)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {

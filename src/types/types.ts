@@ -23,3 +23,14 @@ export enum ESPECIALT {
     BACKEND
 }
 
+export type Mission = {
+    //id: number,
+    name: string,
+    start_date: Date,
+    end_date: Date,
+    module: number
+
+}
+
+
+
