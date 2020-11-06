@@ -7,7 +7,7 @@ export const createStudent = async (
     mission_id: number
     ): Promise<void> =>{
     await connection.raw(`
-        INSERT INTO students
+        INSERT INTO student
         (name, email, birth_date, mission_id)
         VALUES (
             "${name}",
