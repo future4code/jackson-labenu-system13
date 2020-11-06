@@ -3,11 +3,11 @@ import knex from "knex";
 import dotenv from "dotenv";
 import cors from "cors";
 import { AddressInfo } from "net";
+import { postStudent } from "./endpoints/postStudent";
 import { createTeacher } from "./endpoints/createTeacher";
 import { createMission } from "./endpoints/createMission"
 
 
-// ================ CONFIGURAÇÃO DO SERVIDOR =====================
 dotenv.config();
 
 export const connection = knex({
@@ -28,8 +28,11 @@ app.use(cors())
 
 // ==================== ENDPOINTS =============================
 
+
+app.post("/labenu/student", postStudent);
 app.post("/labenu/teacher", createTeacher)
 app.post("/labenu/mission", createMission)
+
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
