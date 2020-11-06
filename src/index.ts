@@ -6,6 +6,7 @@ import { AddressInfo } from "net";
 import { postStudent } from "./endpoints/postStudent";
 import { createTeacher } from "./endpoints/createTeacher";
 import { createMission } from "./endpoints/createMission"
+import { getAgeStudentById } from "./endpoints/getAgeStudentById";
 
 
 dotenv.config();
@@ -31,7 +32,8 @@ app.use(cors())
 
 app.post("/labenu/student", postStudent);
 app.post("/labenu/teacher", createTeacher)
-app.post("/labenu/mission", createMission)
+app.post("/labenu/mission", createMission);
+app.get("/labenu/age/:id", getAgeStudentById)
 
 
 
