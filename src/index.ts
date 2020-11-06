@@ -34,7 +34,7 @@ app.use(cors())
 // ==================== ENDPOINTS =============================
 
 
-app.post("/labenu/student", postStudent);
+app.post("/labenu/student", postStudent); 
 app.post("/labenu/teacher", createTeacher)
 app.post("/labenu/mission", createMission);
 app.get("/labenu/age/:id", getAgeStudentById)
