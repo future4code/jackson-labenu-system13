@@ -1,14 +1,13 @@
 import {Request, Response} from 'express'
 import {insertMission} from '../data/insertMission'
 import {Mission} from '../types/types'
+import { validation } from '../utils/globals'
 
 export const createMission = async (req: Request, res: Response): Promise<void> => {
     try{
         const {name, startDate, endDate, moduleClass} = req.body
-
-        if (!name || !startDate || !endDate || !moduleClass){
-            throw new Error("Incorrect request body - informacao errada ou faltando")
-        }
+        
+        await validation({name, startDate, endDate, moduleClass})
 
         const body: Mission = {
             name,

@@ -1,16 +1,15 @@
 import {Request, Response} from 'express'
 import {insertTeacher} from '../data/insertTeacher'
-import {Teacher} from '../types/types'
+import {Main} from '../types/types'
+import { validation } from '../utils/globals'
 
 export const createTeacher = async (req:Request, res:Response):Promise<void> =>{
     try {
         const {name, email, birthDate, missionId} = req.body
         
-        if(!name || !email || !birthDate || !missionId){
-            throw new Error("Incorrect request body")
-        }
+        await validation({name, email, birthDate, missionId})
         
-        const body: Teacher = {
+        const body: Main = {
             name,
             email,
             birth_date: birthDate,
