@@ -7,6 +7,7 @@ import { postStudent } from "./endpoints/postStudent";
 import { createTeacher } from "./endpoints/createTeacher";
 import { createMission } from "./endpoints/createMission"
 import { addTeacherToMission } from "./endpoints/addTeacherToMission";
+import { addStudentToMission } from "./endpoints/addStudentToMission";
 
 
 dotenv.config();
@@ -33,6 +34,7 @@ app.use(cors())
 app.post("/labenu/student", postStudent);
 app.post("/labenu/teacher", createTeacher)
 app.put("/labenu/add-teacher-to-mission", addTeacherToMission)
+app.put("/labenu/add-student-to-mission", addStudentToMission)
 app.post("/labenu/mission", createMission)
 
 
