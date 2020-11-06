@@ -11,12 +11,11 @@ const formattedDate = (date: string): string =>{
 export const insertMission = async (query: Mission): Promise<any> =>{
     try{
         const result = await connection.raw(`
-        INSER INTO mission (name, start_date, end_date, module)
+        INSERT INTO mission (name, start_date, end_date, module)
         VALUES(
             "${query.name}",
             "${formattedDate(String(query.start_date))}",
             "${formattedDate(String(query.end_date))}",
-            "${query.end_date}",
             "${query.module}"
         );
     `)
